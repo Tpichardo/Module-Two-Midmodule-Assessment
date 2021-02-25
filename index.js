@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const numInput = document.querySelector("input");
     const dicePara = document.querySelector("#dice-para");
     const sumPara = document.querySelector("#sum-para");
+    const ul = document.createElement("ul")
+    document.body.appendChild(ul)
     const arr = [
         { dice: "&#9856", value: 1 },
         { dice: "&#9857", value: 2 },
@@ -16,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         random();
     });
     
+    let numOfClicks = 0
     let sum = 0
     function random() {
         sum = 0
@@ -26,20 +29,15 @@ document.addEventListener("DOMContentLoaded", () => {
             sum += arr[randomNumber].value
         };
         sumPara.textContent = `Sum = ${sum}`
-    };
-
-    btn.addEventListener("click", () => {
-        diceHistory()
-    });
-
-    let numOfClicks = 0
-    const ul = document.createElement("ul")
-    function diceHistory(){
+        
+    numOfClicks++
         if(numOfClicks > 1){
-            document.createElement("li");
-        }
-    }
-
+            const li = document.createElement("li");
+            ul.appendChild(li)
+            li.textContent = `${dicePara.innerHTML} = ${sum}`
+        };
+    
+    };
 
     
 });
