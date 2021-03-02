@@ -1,0 +1,18 @@
+body{
+    text-align: center;
+
+}
+
+#first{
+    border: 3px solid teal;
+    background-color: thistle;
+}
+#second{
+    border: 3px solid teal;
+    background-color: thistle;
+}
+
+ul{
+    list-style: none;
+}
+
