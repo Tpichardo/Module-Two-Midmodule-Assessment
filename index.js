@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let numOfClicks = 0
     let sum = 0
+    let diceHistoryArr = []
+    let sumHistoryArr = []
     function random() {
         sum = 0
         dicePara.innerHTML = ""
@@ -29,12 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
             sum += arr[randomNumber].value
         };
         sumPara.textContent = `Sum = ${sum}`
+        diceHistoryArr.unshift(dicePara.innerHTML)
+        sumHistoryArr.unshift(sum)
+
         
     numOfClicks++
-        if(numOfClicks > 0){
+        if(numOfClicks > 1){
             const li = document.createElement("li");
             ul.appendChild(li)
-            li.textContent = `${dicePara.innerHTML} = ${sum}`
+            li.textContent = diceHistoryArr.pop() + " = " + sumHistoryArr.pop()  
+            // li.textContent = `${dicePara.innerHTML} = ${sum}`
         };
     
     };
